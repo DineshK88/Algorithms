@@ -1,0 +1,42 @@
+//Brute Force Approach
+public class Rotation
+{
+	public static boolean isRotation(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        
+        for (int i = 1; i < s1.length() ; i++) {
+            String sub = s1.substring(i, s1.length()) + s1.substring(0, i);
+            
+            System.out.println(sub);
+            
+            if (s2.equals(sub)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void main(String args[]) {
+        System.out.println(isRotation("erbottlewat","waterbottle"));
+    }
+}
+
+//Efficient Appproach
+
+public class Rotation {
+  public static boolean isRotation(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        
+        s1 = s1 + s1;
+        
+        return s1.contains(s2);
+    }
+    
+    public static void main(String args[]) {
+        System.out.println(isRotation("erbottlewat","waterbottle"));
+    }
+ }
